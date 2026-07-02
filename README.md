@@ -3,8 +3,8 @@
 > 马来西亚股票数据抓取与解析服务
 > Java Spring Boot 重构版
 
-**作者 (Author)：** 钟智强 (Zhong Zhiqiang)
-**许可证 (License)：** [WTFPL](./LICENSE) — Do What The Fuck You Want To Public License
+**作者 (Author)：** 钟智强
+**许可证 (License)：** [MIT](./LICENSE)
 
 ---
 
@@ -225,4 +225,4 @@ docker compose down -v
 
 ## 八、许可证
 
-本项目基于 **WTFPL** 发布 —— 你想干啥就干啥。详见 [LICENSE](./LICENSE)。
+本项目基于 **MIT** 许可证发布。详见 [LICENSE](./LICENSE)。

@@ -4,7 +4,7 @@
     马股通 - Maven 构建配置 (Maven Build Configuration)
     ============================================================
     作者 (Author): 钟智强
-    许可证 (License): WTFPL (Do What The Fuck You Want To Public License)
+    许可证 (License): MIT License
 
     本文件定义整个项目的依赖、插件与打包方式。
     (This file defines all dependencies, plugins and packaging.)
