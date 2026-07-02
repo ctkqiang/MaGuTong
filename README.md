@@ -53,7 +53,7 @@
 ```
 MaGuTong/
 ├── pom.xml                     # Maven 构建配置
-├── LICENSE                     # WTFPL 许可证
+├── LICENSE                     # MIT 许可证
 ├── README.md                   # 本文件
 ├── docs/                       # 补充文档
 │   ├── ARCHITECTURE.md         #   架构说明
