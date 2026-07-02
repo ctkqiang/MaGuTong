@@ -20,10 +20,12 @@ import java.time.LocalDateTime;
 /**
  * 季度财务业绩 (Quarterly financial result)。
  *
- * <p>原 Python 版本写入 {@code gpmining.qrpt} 表，重命名为 {@code quarterly_result}。
+ * <p>
+ * 对应数据库表 {@code quarterly_result}，存储上市公司季度财报数据。
  * 字段涵盖当季与累计 (cumulative) 数据，以及同比 (year-over-year) 对照数据。
  *
- * <p>命名约定：{@code yoy*} 表示同比数据，{@code cum*} 表示本财年累计数据，
+ * <p>
+ * 命名约定：{@code yoy*} 表示同比数据，{@code cum*} 表示本财年累计数据，
  * {@code yoyCum*} 表示去年同期累计数据。
  *
  * @author 钟智强

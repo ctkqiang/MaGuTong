@@ -87,15 +87,15 @@ MaGuTong/
 按需求，**所有数据库表名均已重命名**。旧名来自原 Python 脚本，新名语义更清晰、
 统一使用下划线命名法：
 
-| 原表名 (Python)           | 新表名 (本项目)      | 含义             |
-| ------------------------- | -------------------- | ---------------- |
-| `rtdata.image`            | `market_index_quote` | 指数/股票行情    |
-| `gpmining.arpt`           | `annual_report`      | 年度报告         |
-| `gpmining.qrpt`           | `quarterly_result`   | 季度财报         |
-| `gpmining.listingprofile` | `listing_profile`    | 上市概况         |
-| `gpmining.bursapending`   | `announcement_queue` | 待处理公告队列   |
-| `gpmining.bursalasteod`   | `last_eod_marker`    | 最后收盘处理标记 |
-| `holiday_calendar`        | `trading_holiday`    | 交易假期日历     |
+| 表名                 | 含义             |
+| -------------------- | ---------------- |
+| `market_index_quote` | 指数/股票行情    |
+| `annual_report`      | 年度报告         |
+| `quarterly_result`   | 季度财报         |
+| `listing_profile`    | 上市概况         |
+| `announcement_queue` | 待处理公告队列   |
+| `last_eod_marker`    | 最后收盘处理标记 |
+| `trading_holiday`    | 交易假期日历     |
 
 完整建表语句见 [`src/main/resources/schema.sql`](./src/main/resources/schema.sql)。
 

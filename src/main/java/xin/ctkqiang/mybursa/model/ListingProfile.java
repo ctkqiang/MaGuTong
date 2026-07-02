@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 /**
  * 证券上市资料 (Security listing profile)。
  *
- * <p>原 Python 版本写入 {@code gpmining.listingprofile} 表，重命名为 {@code listing_profile}。
+ * <p>
+ * 对应数据库表 {@code listing_profile}，存储上市公司基本概况。
  * 主要用于窝轮 (warrant)、结构性产品等衍生工具的上市信息。
  *
  * @author 钟智强

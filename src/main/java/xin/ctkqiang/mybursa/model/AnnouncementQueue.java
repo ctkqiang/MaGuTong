@@ -17,14 +17,16 @@ import java.time.LocalDate;
 /**
  * 待处理公告队列 (Pending announcement queue)。
  *
- * <p>原 Python 版本写入 {@code gpmining.bursapending} 表，重命名为 {@code announcement_queue}。
+ * <p>
+ * 对应数据库表 {@code announcement_queue}，存储待处理的公告任务。
  * 抓取器先将待抓取公告入队，解析器处理完成后将 {@code processState} 标记为已完成。
  *
- * <p>{@code processState} 状态约定 (State convention)：
+ * <p>
+ * {@code processState} 状态约定 (State convention)：
  * <ul>
- *     <li>{@code 0} —— 待处理 (pending)</li>
- *     <li>{@code 1} —— 处理成功 (done)</li>
- *     <li>{@code -1} —— 处理失败 (error)</li>
+ * <li>{@code 0} —— 待处理 (pending)</li>
+ * <li>{@code 1} —— 处理成功 (done)</li>
+ * <li>{@code -1} —— 处理失败 (error)</li>
  * </ul>
  *
  * @author 钟智强

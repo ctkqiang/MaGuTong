@@ -7,14 +7,14 @@
 --       进行语义化重命名。生产环境可将 spring.jpa.hibernate.ddl-auto
 --       设为 validate，并以本脚本作为唯一权威 DDL 来源。
 --
--- 表名映射 (Table renaming map):
---   rtdata.image            -> market_index_quote
---   gpmining.arpt           -> annual_report
---   gpmining.qrpt           -> quarterly_result
---   gpmining.listingprofile -> listing_profile
---   gpmining.bursapending   -> announcement_queue
---   gpmining.bursalasteod   -> last_eod_marker
---   holiday_calendar        -> trading_holiday
+-- 数据表 (Tables):
+--   market_index_quote  - 指数/股票行情
+--   annual_report       - 年度报告
+--   quarterly_result    - 季度财报
+--   listing_profile     - 上市概况
+--   announcement_queue  - 待处理公告队列
+--   last_eod_marker     - 最后收盘处理标记
+--   trading_holiday     - 交易假期日历
 -- ============================================================
 CREATE DATABASE IF NOT EXISTS bursa_data DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE bursa_data;

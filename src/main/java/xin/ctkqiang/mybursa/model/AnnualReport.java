@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 /**
  * 年度报告公告 (Annual report announcement)。
  *
- * <p>原 Python 版本写入 {@code gpmining.arpt} 表，重命名为语义清晰的 {@code annual_report}。
+ * <p>
+ * 对应数据库表 {@code annual_report}，存储上市公司年度报告信息。
  *
  * @author 钟智强
  */

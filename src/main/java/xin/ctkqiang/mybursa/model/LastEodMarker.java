@@ -15,7 +15,8 @@ import java.time.LocalDateTime;
 /**
  * 各公告类型的最后处理时间标记 (Last end-of-day processing marker per announcement type)。
  *
- * <p>原 Python 版本对应 {@code gpmining.bursalasteod} 表，重命名为 {@code last_eod_marker}。
+ * <p>
+ * 对应数据库表 {@code last_eod_marker}，记录最后一次收盘数据处理的时间戳。
  *
  * @author 钟智强
  */
