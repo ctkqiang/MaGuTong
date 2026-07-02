@@ -23,7 +23,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.zhongzhiqiang</groupId>
+    <groupId>xin.ctkqiang</groupId>
     <artifactId>magu-tong</artifactId>
     <version>1.0.0</version>
     <name>马股通</name>
