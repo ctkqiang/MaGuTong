@@ -20,7 +20,8 @@ import java.util.regex.Pattern;
 /**
  * 季度财务业绩解析器 (Quarterly financial result parser)。
  *
- * <p>对应原 Python 版本 {@code dm_financial_result.process_financial_result}。
+ * <p>
+ * 对应原 Python 版本 {@code dm_financial_result.process_financial_result}。
  * 先从页面头部表格解析财政年度/季度信息，再从首个 {@code ven_table} 财务表格
  * 按行号与行标签解析各项财务指标。
  *
@@ -32,12 +33,10 @@ public class FinancialResultParser {
 
     private static final Pattern DIGITS = Pattern.compile("\\d+");
 
-    // ---- 财务行标签常量 (Row-label constants, matched case-insensitively) ----
     private static final String ID_REVENUE = "revenue";
     private static final String ID_PROFIT_BEFORE_TAX = "profit/(loss) before tax";
     private static final String ID_NET_PROFIT_PERIOD = "profit/(loss) for the period";
-    private static final String ID_NET_PROFIT =
-            "profit/(loss) attributable to ordinary equity holders of the parent";
+    private static final String ID_NET_PROFIT = "profit/(loss) attributable to ordinary equity holders of the parent";
     private static final String ID_NET_PROFIT_3 = "net profit/(loss) for the period";
     private static final List<String> ID_EPS = List.of(
             "basic earnings/(loss) per share (subunit)",
@@ -97,7 +96,7 @@ public class FinancialResultParser {
 
             boolean isQuarterlyPeriod = id.equals("quarterly report for the financial period ended")
                     || ((id.contains("quarterly report") || id.contains("half yearly report"))
-                    && id.contains("for the financial period ended"));
+                            && id.contains("for the financial period ended"));
 
             if (isQuarterlyPeriod) {
                 result.setFinQtrEnd(ParseUtils.fromDayMonthYear(value));
@@ -120,7 +119,8 @@ public class FinancialResultParser {
     /**
      * 解析首个 {@code ven_table} 财务数据表格 (Parse the first ven_table with figures)。
      *
-     * <p>依据行号 (第一列 1-7) 与行标签双重判断，避免误匹配。
+     * <p>
+     * 依据行号 (第一列 1-7) 与行标签双重判断，避免误匹配。
      */
     private void parseFinancialTable(Document doc, QuarterlyResult result) {
         Element table = doc.selectFirst("table.ven_table");
@@ -167,10 +167,10 @@ public class FinancialResultParser {
      * 将一行中第 2-5 列 (当季/同比/累计/去年累计) 依次赋值 (Assign the four figure columns)。
      */
     private void assignFourFigures(List<String> rowData,
-                                   java.util.function.Consumer<BigDecimal> current,
-                                   java.util.function.Consumer<BigDecimal> yoy,
-                                   java.util.function.Consumer<BigDecimal> cum,
-                                   java.util.function.Consumer<BigDecimal> yoyCum) {
+            java.util.function.Consumer<BigDecimal> current,
+            java.util.function.Consumer<BigDecimal> yoy,
+            java.util.function.Consumer<BigDecimal> cum,
+            java.util.function.Consumer<BigDecimal> yoyCum) {
         current.accept(figureAt(rowData, 2));
         yoy.accept(figureAt(rowData, 3));
         cum.accept(figureAt(rowData, 4));

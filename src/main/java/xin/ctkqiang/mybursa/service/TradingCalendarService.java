@@ -12,7 +12,8 @@ import java.time.LocalTime;
 /**
  * 交易日历服务 (Trading calendar service)。
  *
- * <p>对应原 Python 版本的 {@code is_trading_time} 与 {@code load_holidays}。判断当前时刻
+ * <p>
+ * 对应原 Python 版本的 {@code is_trading_time} 与 {@code load_holidays}。判断当前时刻
  * 是否处于交易时段：需同时满足 —— 非周末、非假期、且落在上午或下午交易时段内。
  *
  * @author 钟智强
@@ -25,7 +26,7 @@ public class TradingCalendarService {
     private final ScraperProperties.TradingHours tradingHours;
 
     public TradingCalendarService(TradingHolidayRepository holidayRepository,
-                                  ScraperProperties properties) {
+            ScraperProperties properties) {
         this.holidayRepository = holidayRepository;
         this.tradingHours = properties.getTradingHours();
     }
