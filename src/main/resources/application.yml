@@ -1,0 +1,68 @@
+# ============================================================
+# 马股通 应用配置 (Application Configuration)
+# 作者 (Author): 钟智强
+# ============================================================
+# 敏感信息 (数据库账号密码) 建议通过环境变量注入，切勿硬编码提交。
+# (Inject secrets via environment variables; never commit them.)
+# ============================================================
+
+spring:
+  application:
+    name: MaGuTong
+
+  # 数据源配置 (Datasource) —— 通过环境变量覆盖默认值
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:bursa_data}?useSSL=false&serverTimezone=Asia/Kuala_Lumpur&characterEncoding=UTF-8
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA / Hibernate 配置
+  jpa:
+    hibernate:
+      # 生产环境建议 validate 或 none，开发环境可用 update
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  # Thymeleaf 视图 (View layer)
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+
+# ============================================================
+# 抓取器自定义配置 (Scraper custom properties)
+# 绑定到 ScraperProperties 类
+# ============================================================
+magu-tong:
+  indices-url: "https://www.bursamalaysia.com/market_information/indices_prices#"
+  max-retries: 3
+  navigation-timeout-ms: 20000
+  table-settle-ms: 2000
+  headless: true
+  # 定时抓取间隔：5 分钟 (Scrape interval: 5 minutes)
+  schedule-interval-ms: 300000
+  trading-hours:
+    morning-start: "09:00"
+    morning-end: "13:00"
+    afternoon-start: "14:30"
+    afternoon-end: "17:30"
+    weekend-days:
+      - 6 # 周六 (Saturday)
+      - 7 # 周日 (Sunday)
+
+# ============================================================
+# 日志配置 (Logging)
+# ============================================================
+logging:
+  level:
+    root: INFO
+    com.zhongzhiqiang.magutong: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+server:
+  port: ${SERVER_PORT:8080}
