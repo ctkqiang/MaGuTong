@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <!-- Arrow marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#555"/>
+    </marker>
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="900" fill="#fafafa" rx="4"/>
+
+  <!-- ========== 1. START (pill shape) ========== -->
+  <rect x="270" y="18" width="260" height="42" rx="21" fill="#1a1a2e" filter="url(#shadow)"/>
+  <text x="400" y="44" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">START: Scheduler (5 min) / Manual POST</text>
+
+  <!-- Arrow: START -> Decision 1 -->
+  <line x1="400" y1="60" x2="400" y2="82" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 2. DECISION: Trading time? (diamond) ========== -->
+  <polygon points="400,82 540,130 400,178 260,130" fill="#fff8e1" stroke="#f9a825" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="125" text-anchor="middle" fill="#5d4037" font-size="11" font-weight="bold">Is it trading time?</text>
+  <text x="400" y="140" text-anchor="middle" fill="#795548" font-size="9">(Weekday + Not Holiday + 09-13 / 14:30-17:30)</text>
+
+  <!-- Arrow: Decision YES -> PageFetcher 1 (down) -->
+  <line x1="400" y1="178" x2="400" y2="206" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="412" y="196" fill="#2e7d32" font-size="10" font-weight="bold">Yes / Manual</text>
+
+  <!-- Arrow: Decision NO -> Skip (right) -->
+  <line x1="540" y1="130" x2="680" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="600" y="122" fill="#c62828" font-size="10" font-weight="bold">No (scheduler)</text>
+
+  <!-- Skip box (right side) -->
+  <rect x="680" y="112" width="100" height="36" rx="18" fill="#1a1a2e" filter="url(#shadow)"/>
+  <text x="730" y="134" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">Skip / END</text>
+
+  <!-- ========== 3. PageFetcher: Launch Playwright ========== -->
+  <rect x="220" y="206" width="360" height="38" rx="8" fill="#f3e5f5" stroke="#9b59b6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="229" text-anchor="middle" fill="#4a148c" font-size="12" font-weight="bold">PageFetcher: Launch Playwright Chromium (headless)</text>
+
+  <!-- Arrow -->
+  <line x1="400" y1="244" x2="400" y2="262" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 4. PageFetcher: Navigate ========== -->
+  <rect x="220" y="262" width="360" height="38" rx="8" fill="#f3e5f5" stroke="#9b59b6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="285" text-anchor="middle" fill="#4a148c" font-size="12" font-weight="bold">PageFetcher: Navigate to Bursa indices page</text>
+
+  <!-- Arrow -->
+  <line x1="400" y1="300" x2="400" y2="318" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 5. PageFetcher: Wait ========== -->
+  <rect x="220" y="318" width="360" height="38" rx="8" fill="#f3e5f5" stroke="#9b59b6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="341" text-anchor="middle" fill="#4a148c" font-size="12" font-weight="bold">PageFetcher: Wait for table to settle (2000ms)</text>
+
+  <!-- Arrow -->
+  <line x1="400" y1="356" x2="400" y2="374" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 6. PageFetcher: Extract HTML ========== -->
+  <rect x="220" y="374" width="360" height="38" rx="8" fill="#f3e5f5" stroke="#9b59b6" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="397" text-anchor="middle" fill="#4a148c" font-size="12" font-weight="bold">PageFetcher: Extract raw HTML content</text>
+
+  <!-- Arrow -->
+  <line x1="400" y1="412" x2="400" y2="430" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 7. IndexParser: Parse HTML ========== -->
+  <rect x="220" y="430" width="360" height="38" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="453" text-anchor="middle" fill="#0d47a1" font-size="12" font-weight="bold">IndexParser: Parse HTML table rows (Jsoup)</text>
+
+  <!-- Arrow -->
+  <line x1="400" y1="468" x2="400" y2="486" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 8. IndexParser: Map to entity ========== -->
+  <rect x="190" y="486" width="420" height="38" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="502" text-anchor="middle" fill="#0d47a1" font-size="11" font-weight="bold">IndexParser: Map rows to IndexQuote entity</text>
+  <text x="400" y="516" text-anchor="middle" fill="#1565c0" font-size="9">(ticker_id, symbol, open, high, low, last, prev)</text>
+
+  <!-- Arrow -->
+  <line x1="400" y1="524" x2="400" y2="542" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 9. Service: Save to MySQL ========== -->
+  <rect x="190" y="542" width="420" height="38" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="558" text-anchor="middle" fill="#1b5e20" font-size="11" font-weight="bold">IndexQuoteService: Save/update quotes to MySQL</text>
+  <text x="400" y="572" text-anchor="middle" fill="#2e7d32" font-size="9">(upsert by ticker_id via JPA)</text>
+
+  <!-- Arrow -->
+  <line x1="400" y1="580" x2="400" y2="608" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 10. DECISION: Success? ========== -->
+  <polygon points="400,608 520,650 400,692 280,650" fill="#fff8e1" stroke="#f9a825" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="654" text-anchor="middle" fill="#5d4037" font-size="12" font-weight="bold">Success?</text>
+
+  <!-- Arrow: YES -> Success result (down) -->
+  <line x1="400" y1="692" x2="400" y2="720" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="415" y="712" fill="#2e7d32" font-size="10" font-weight="bold">Yes</text>
+
+  <!-- Arrow: NO -> Retry (right) -->
+  <line x1="520" y1="650" x2="610" y2="650" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="558" y="642" fill="#c62828" font-size="10" font-weight="bold">No</text>
+
+  <!-- ========== Retry box (right side, red) ========== -->
+  <rect x="610" y="630" width="170" height="40" rx="8" fill="#ffebee" stroke="#c62828" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="695" y="647" text-anchor="middle" fill="#b71c1c" font-size="11" font-weight="bold">Retry (up to 3x)</text>
+  <text x="695" y="662" text-anchor="middle" fill="#c62828" font-size="9">then return error</text>
+
+  <!-- Retry arrow looping back up to PageFetcher step 3 -->
+  <line x1="695" y1="630" x2="695" y2="225" stroke="#c62828" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <line x1="695" y1="225" x2="580" y2="225" stroke="#c62828" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="700" y="430" fill="#c62828" font-size="9" transform="rotate(-90,700,430)">retry loop</text>
+
+  <!-- ========== Success result (green box) ========== -->
+  <rect x="250" y="720" width="300" height="38" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="1.8" filter="url(#shadow)"/>
+  <text x="400" y="743" text-anchor="middle" fill="#1b5e20" font-size="12" font-weight="bold">Return {success: true, savedCount: N}</text>
+
+  <!-- Arrow: Success -> END -->
+  <line x1="400" y1="758" x2="400" y2="786" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ========== 11. END (pill shape) ========== -->
+  <rect x="340" y="786" width="120" height="40" rx="20" fill="#1a1a2e" filter="url(#shadow)"/>
+  <text x="400" y="811" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">END</text>
+
+  <!-- ========== Retry error path to END ========== -->
+  <line x1="695" y1="670" x2="695" y2="806" stroke="#c62828" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <line x1="695" y1="806" x2="460" y2="806" stroke="#c62828" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="580" y="820" fill="#c62828" font-size="9">after max retries</text>
+
+  <!-- ========== Legend ========== -->
+  <rect x="16" y="842" width="768" height="46" rx="6" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="30" y="862" fill="#333" font-size="10" font-weight="bold">Legend:</text>
+  <!-- Start/End -->
+  <rect x="90" y="852" width="36" height="16" rx="8" fill="#1a1a2e"/>
+  <text x="132" y="864" fill="#555" font-size="9">Start / End</text>
+  <!-- Decision -->
+  <polygon points="210,852 222,860 210,868 198,860" fill="#fff8e1" stroke="#f9a825" stroke-width="1"/>
+  <text x="228" y="864" fill="#555" font-size="9">Decision</text>
+  <!-- PageFetcher -->
+  <rect x="296" y="852" width="36" height="16" rx="4" fill="#f3e5f5" stroke="#9b59b6" stroke-width="1"/>
+  <text x="338" y="864" fill="#555" font-size="9">PageFetcher</text>
+  <!-- IndexParser -->
+  <rect x="420" y="852" width="36" height="16" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <text x="462" y="864" fill="#555" font-size="9">IndexParser</text>
+  <!-- Service/DB -->
+  <rect x="540" y="852" width="36" height="16" rx="4" fill="#e8f5e9" stroke="#388e3c" stroke-width="1"/>
+  <text x="582" y="864" fill="#555" font-size="9">Service / DB</text>
+  <!-- Error -->
+  <rect x="660" y="852" width="36" height="16" rx="4" fill="#ffebee" stroke="#c62828" stroke-width="1"/>
+  <text x="702" y="864" fill="#555" font-size="9">Error / Retry</text>
+</svg>

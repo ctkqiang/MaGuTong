@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .table-header-blue { fill: #1565c0; }
+      .table-body-blue { fill: #e3f2fd; }
+      .table-header-orange { fill: #e65100; }
+      .table-body-orange { fill: #fff3e0; }
+      .table-header-green { fill: #2e7d32; }
+      .table-body-green { fill: #e8f5e9; }
+      .header-text { fill: #ffffff; font-size: 11px; font-weight: bold; }
+      .col-text { fill: #212121; font-size: 9.5px; }
+      .label-pk { fill: #c62828; font-size: 8px; font-weight: bold; }
+      .label-uk { fill: #6a1b9a; font-size: 8px; font-weight: bold; }
+      .label-type { fill: #616161; font-size: 8px; }
+      .rel-line { stroke: #757575; stroke-width: 1.2; stroke-dasharray: 6,3; fill: none; }
+      .rel-label { fill: #616161; font-size: 8px; font-style: italic; }
+      .title-text { fill: #263238; font-size: 16px; font-weight: bold; }
+      .subtitle-text { fill: #546e7a; font-size: 10px; }
+      .legend-text { fill: #424242; font-size: 9px; }
+      .border { stroke: #bdbdbd; stroke-width: 0.5; }
+    </style>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="700" fill="#fafafa" rx="4"/>
+
+  <!-- Title -->
+  <text x="550" y="30" text-anchor="middle" class="title-text">MaGuTong Database Schema (bursa_data)</text>
+  <text x="550" y="46" text-anchor="middle" class="subtitle-text">MySQL 8.0 | utf8mb4 | Entity-Relationship Diagram</text>
+
+  <!-- ============================================================ -->
+  <!-- TABLE: market_index_quote (Blue, top-left) -->
+  <!-- ============================================================ -->
+  <g transform="translate(20, 65)" filter="url(#shadow)">
+    <rect width="230" height="195" rx="4" class="table-body-blue border"/>
+    <rect width="230" height="26" rx="4" class="table-header-blue"/>
+    <rect y="22" width="230" height="4" class="table-header-blue"/>
+    <text x="115" y="17" text-anchor="middle" class="header-text">market_index_quote</text>
+    <g class="col-text">
+      <text x="8" y="42"><tspan class="label-pk">PK</tspan>  ticker_id</text><text x="175" y="42" class="label-type">VARCHAR(32)</text>
+      <text x="8" y="57">stock_code</text><text x="175" y="57" class="label-type">VARCHAR</text>
+      <text x="8" y="72">symbol</text><text x="175" y="72" class="label-type">VARCHAR</text>
+      <text x="8" y="87">exchange</text><text x="175" y="87" class="label-type">VARCHAR</text>
+      <text x="8" y="102">sector_id</text><text x="175" y="102" class="label-type">VARCHAR</text>
+      <text x="8" y="117">prev_close_price</text><text x="175" y="117" class="label-type">DEC(14,4)</text>
+      <text x="8" y="132">open_price</text><text x="175" y="132" class="label-type">DEC(14,4)</text>
+      <text x="8" y="147">high_price</text><text x="175" y="147" class="label-type">DEC(14,4)</text>
+      <text x="8" y="162">low_price</text><text x="175" y="162" class="label-type">DEC(14,4)</text>
+      <text x="8" y="177">last_done_price</text><text x="175" y="177" class="label-type">DEC(14,4)</text>
+      <text x="8" y="192">last_update</text><text x="175" y="192" class="label-type">DATETIME</text>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TABLE: annual_report (Blue, top-center) -->
+  <!-- ============================================================ -->
+  <g transform="translate(280, 65)" filter="url(#shadow)">
+    <rect width="230" height="210" rx="4" class="table-body-blue border"/>
+    <rect width="230" height="26" rx="4" class="table-header-blue"/>
+    <rect y="22" width="230" height="4" class="table-header-blue"/>
+    <text x="115" y="17" text-anchor="middle" class="header-text">annual_report</text>
+    <g class="col-text">
+      <text x="8" y="42"><tspan class="label-pk">PK</tspan>  id</text><text x="165" y="42" class="label-type">BIGINT AUTO</text>
+      <text x="8" y="57"><tspan class="label-uk">UK</tspan>  stock_code</text><text x="175" y="57" class="label-type">VARCHAR</text>
+      <text x="8" y="72"><tspan class="label-uk">UK</tspan>  ref_id</text><text x="175" y="72" class="label-type">VARCHAR</text>
+      <text x="8" y="87">company_name</text><text x="175" y="87" class="label-type">VARCHAR</text>
+      <text x="8" y="102">financial_year_end</text><text x="175" y="102" class="label-type">DATE</text>
+      <text x="8" y="117">announced_date</text><text x="175" y="117" class="label-type">DATE</text>
+      <text x="8" y="132">revenue</text><text x="175" y="132" class="label-type">DECIMAL</text>
+      <text x="8" y="147">profit_loss</text><text x="175" y="147" class="label-type">DECIMAL</text>
+      <text x="8" y="162">eps</text><text x="175" y="162" class="label-type">DECIMAL</text>
+      <text x="8" y="177">dps</text><text x="175" y="177" class="label-type">DECIMAL</text>
+      <text x="8" y="192">report_url</text><text x="175" y="192" class="label-type">VARCHAR</text>
+      <text x="8" y="207">created_at</text><text x="175" y="207" class="label-type">DATETIME</text>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TABLE: quarterly_result (Blue, top-right) -->
+  <!-- ============================================================ -->
+  <g transform="translate(540, 65)" filter="url(#shadow)">
+    <rect width="250" height="285" rx="4" class="table-body-blue border"/>
+    <rect width="250" height="26" rx="4" class="table-header-blue"/>
+    <rect y="22" width="250" height="4" class="table-header-blue"/>
+    <text x="125" y="17" text-anchor="middle" class="header-text">quarterly_result</text>
+    <g class="col-text">
+      <text x="8" y="42"><tspan class="label-pk">PK</tspan>  id</text><text x="185" y="42" class="label-type">BIGINT AUTO</text>
+      <text x="8" y="57"><tspan class="label-uk">UK</tspan>  stock_code</text><text x="195" y="57" class="label-type">VARCHAR</text>
+      <text x="8" y="72"><tspan class="label-uk">UK</tspan>  fin_qtr_end</text><text x="195" y="72" class="label-type">DATE</text>
+      <text x="8" y="87">company_name</text><text x="195" y="87" class="label-type">VARCHAR</text>
+      <text x="8" y="102">announced_date</text><text x="195" y="102" class="label-type">DATE</text>
+      <!-- Current quarter -->
+      <text x="8" y="120" style="fill:#1565c0; font-size:8px; font-weight:bold;">-- Current Quarter --</text>
+      <text x="8" y="135">revenue</text><text x="195" y="135" class="label-type">DECIMAL</text>
+      <text x="8" y="150">profit_loss</text><text x="195" y="150" class="label-type">DECIMAL</text>
+      <text x="8" y="165">eps</text><text x="195" y="165" class="label-type">DECIMAL</text>
+      <text x="8" y="180">dps</text><text x="195" y="180" class="label-type">DECIMAL</text>
+      <text x="8" y="195">amended</text><text x="195" y="195" class="label-type">BOOLEAN</text>
+      <!-- YoY -->
+      <text x="8" y="213" style="fill:#1565c0; font-size:8px; font-weight:bold;">-- YoY Comparison --</text>
+      <text x="8" y="228">revenue_yoy / profit_yoy</text><text x="195" y="228" class="label-type">DECIMAL</text>
+      <text x="8" y="243">eps_yoy / dps_yoy</text><text x="195" y="243" class="label-type">DECIMAL</text>
+      <!-- Cumulative -->
+      <text x="8" y="261" style="fill:#1565c0; font-size:8px; font-weight:bold;">-- Cumulative --</text>
+      <text x="8" y="276">revenue_cum / profit_cum</text><text x="195" y="276" class="label-type">DECIMAL</text>
+      <text x="8" y="285">created_at</text><text x="195" y="285" class="label-type">DATETIME</text>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TABLE: listing_profile (Blue, far right) -->
+  <!-- ============================================================ -->
+  <g transform="translate(820, 65)" filter="url(#shadow)">
+    <rect width="250" height="225" rx="4" class="table-body-blue border"/>
+    <rect width="250" height="26" rx="4" class="table-header-blue"/>
+    <rect y="22" width="250" height="4" class="table-header-blue"/>
+    <text x="125" y="17" text-anchor="middle" class="header-text">listing_profile</text>
+    <g class="col-text">
+      <text x="8" y="42"><tspan class="label-pk">PK</tspan>  id</text><text x="185" y="42" class="label-type">BIGINT AUTO</text>
+      <text x="8" y="57"><tspan class="label-uk">UK</tspan>  stock_code</text><text x="195" y="57" class="label-type">VARCHAR</text>
+      <text x="8" y="72"><tspan class="label-uk">UK</tspan>  ref_id</text><text x="195" y="72" class="label-type">VARCHAR</text>
+      <text x="8" y="87">company_name</text><text x="195" y="87" class="label-type">VARCHAR</text>
+      <text x="8" y="102">category</text><text x="195" y="102" class="label-type">VARCHAR</text>
+      <text x="8" y="117">issue_price</text><text x="195" y="117" class="label-type">DECIMAL</text>
+      <text x="8" y="132">issue_size</text><text x="195" y="132" class="label-type">DECIMAL</text>
+      <text x="8" y="147">listing_date</text><text x="195" y="147" class="label-type">DATE</text>
+      <text x="8" y="162">maturity_date</text><text x="195" y="162" class="label-type">DATE</text>
+      <text x="8" y="177">exercise_price</text><text x="195" y="177" class="label-type">DECIMAL</text>
+      <text x="8" y="192">exercise_ratio</text><text x="195" y="192" class="label-type">VARCHAR</text>
+      <text x="8" y="207">underlying</text><text x="195" y="207" class="label-type">VARCHAR</text>
+      <text x="8" y="222">created_at</text><text x="195" y="222" class="label-type">DATETIME</text>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TABLE: announcement_queue (Orange, bottom-center) -->
+  <!-- ============================================================ -->
+  <g transform="translate(280, 420)" filter="url(#shadow)">
+    <rect width="280" height="195" rx="4" class="table-body-orange border"/>
+    <rect width="280" height="26" rx="4" class="table-header-orange"/>
+    <rect y="22" width="280" height="4" class="table-header-orange"/>
+    <text x="140" y="17" text-anchor="middle" class="header-text">announcement_queue</text>
+    <g class="col-text">
+      <text x="8" y="42"><tspan class="label-pk">PK</tspan>  queue_id</text><text x="215" y="42" class="label-type">BIGINT AUTO</text>
+      <text x="8" y="57"><tspan class="label-uk">UK</tspan>  url</text><text x="225" y="57" class="label-type">VARCHAR</text>
+      <text x="8" y="72">en_type</text><text x="225" y="72" class="label-type">VARCHAR</text>
+      <text x="8" y="87">stock_code</text><text x="225" y="87" class="label-type">VARCHAR</text>
+      <text x="8" y="102">company_name</text><text x="225" y="102" class="label-type">VARCHAR</text>
+      <text x="8" y="117">announced_date</text><text x="225" y="117" class="label-type">DATE</text>
+      <text x="8" y="132">process_state</text><text x="195" y="132" class="label-type">INT (0/1/-1)</text>
+      <text x="8" y="147">error_message</text><text x="225" y="147" class="label-type">TEXT</text>
+      <text x="8" y="162">created_at</text><text x="225" y="162" class="label-type">DATETIME</text>
+      <text x="8" y="177">processed_at</text><text x="225" y="177" class="label-type">DATETIME</text>
+    </g>
+    <!-- process_state legend -->
+    <text x="8" y="193" style="fill:#bf360c; font-size:7.5px;">0=pending  1=done  -1=error</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TABLE: last_eod_marker (Orange, bottom-left) -->
+  <!-- ============================================================ -->
+  <g transform="translate(20, 470)" filter="url(#shadow)">
+    <rect width="220" height="65" rx="4" class="table-body-orange border"/>
+    <rect width="220" height="26" rx="4" class="table-header-orange"/>
+    <rect y="22" width="220" height="4" class="table-header-orange"/>
+    <text x="110" y="17" text-anchor="middle" class="header-text">last_eod_marker</text>
+    <g class="col-text">
+      <text x="8" y="42"><tspan class="label-pk">PK</tspan>  en_type</text><text x="165" y="42" class="label-type">VARCHAR(32)</text>
+      <text x="8" y="57">last_processed_date</text><text x="185" y="57" class="label-type">DATE</text>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TABLE: trading_holiday (Green, bottom-right) -->
+  <!-- ============================================================ -->
+  <g transform="translate(600, 470)" filter="url(#shadow)">
+    <rect width="220" height="65" rx="4" class="table-body-green border"/>
+    <rect width="220" height="26" rx="4" class="table-header-green"/>
+    <rect y="22" width="220" height="4" class="table-header-green"/>
+    <text x="110" y="17" text-anchor="middle" class="header-text">trading_holiday</text>
+    <g class="col-text">
+      <text x="8" y="42"><tspan class="label-pk">PK</tspan>  holiday_date</text><text x="175" y="42" class="label-type">DATE</text>
+      <text x="8" y="57">description</text><text x="175" y="57" class="label-type">VARCHAR</text>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- RELATIONSHIPS (dashed lines) -->
+  <!-- ============================================================ -->
+
+  <!-- announcement_queue.en_type --> last_eod_marker.en_type -->
+  <path d="M 280,492 L 240,492" class="rel-line" marker-end="url(#arrowhead)"/>
+  <text x="248" y="486" class="rel-label">en_type link</text>
+
+  <!-- announcement_queue feeds --> annual_report -->
+  <path d="M 420,420 L 420,390 L 395,390 L 395,275" class="rel-line"/>
+  <text x="400" y="385" class="rel-label">feeds (scrape pipeline)</text>
+  <!-- arrowhead at annual_report -->
+  <polygon points="395,275 391,283 399,283" fill="#757575"/>
+
+  <!-- announcement_queue feeds --> quarterly_result -->
+  <path d="M 480,420 L 480,390 L 620,390 L 620,350" class="rel-line"/>
+  <!-- arrowhead at quarterly_result -->
+  <polygon points="620,350 616,358 624,358" fill="#757575"/>
+
+  <!-- announcement_queue feeds --> listing_profile -->
+  <path d="M 530,420 L 530,395 L 945,395 L 945,290" class="rel-line"/>
+  <!-- arrowhead at listing_profile -->
+  <polygon points="945,290 941,298 949,298" fill="#757575"/>
+
+  <!-- trading_holiday checked by scheduler (conceptual) -->
+  <path d="M 820,502 L 870,502 L 870,560 L 200,560 L 200,260" class="rel-line"/>
+  <text x="460" y="575" class="rel-label">scheduler checks trading_holiday before scraping</text>
+  <!-- arrowhead pointing up to market_index_quote area -->
+  <polygon points="200,260 196,268 204,268" fill="#757575"/>
+
+  <!-- ============================================================ -->
+  <!-- LEGEND -->
+  <!-- ============================================================ -->
+  <g transform="translate(20, 620)">
+    <text x="0" y="0" style="fill:#263238; font-size:10px; font-weight:bold;">Legend</text>
+
+    <!-- Blue -->
+    <rect x="0" y="10" width="14" height="14" rx="2" fill="#1565c0"/>
+    <text x="20" y="21" class="legend-text">Core Data Tables</text>
+
+    <!-- Orange -->
+    <rect x="150" y="10" width="14" height="14" rx="2" fill="#e65100"/>
+    <text x="170" y="21" class="legend-text">Queue / Processing Tables</text>
+
+    <!-- Green -->
+    <rect x="340" y="10" width="14" height="14" rx="2" fill="#2e7d32"/>
+    <text x="360" y="21" class="legend-text">Reference Table</text>
+
+    <!-- Dashed line -->
+    <line x1="490" y1="17" x2="530" y2="17" class="rel-line"/>
+    <text x="536" y="21" class="legend-text">Conceptual Relationship</text>
+
+    <!-- PK / UK -->
+    <text x="700" y="21" class="legend-text"><tspan class="label-pk">PK</tspan> = Primary Key    <tspan class="label-uk">UK</tspan> = Unique Key</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="550" y="690" text-anchor="middle" style="fill:#9e9e9e; font-size:8px;">bursa_data | MySQL 8.0 | utf8mb4_general_ci</text>
+</svg>

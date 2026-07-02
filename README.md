@@ -1,9 +1,9 @@
-# 马股通 (MaGuTong)
+# 马股通
 
 > **马来西亚股票数据抓取与解析服务**
 > Java 17 · Spring Boot 3.3.4 · Playwright · MySQL 8
 
-**作者 (Author)：** 钟智强 (Zhong Zhiqiang)
+**作者 (Author)：** 钟智强
 **许可证 (License)：** [MIT](./LICENSE)
 
 ---

@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrowDown" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+    <marker id="arrowRight" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+    <marker id="arrowLeft" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f8f9fa" rx="8" />
+
+  <!-- Title Bar -->
+  <rect width="900" height="48" fill="#1a1a2e" rx="8" />
+  <rect x="0" y="24" width="900" height="24" fill="#1a1a2e" />
+  <text x="450" y="31" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">MaGuTong System Architecture</text>
+
+  <!-- ==================== LAYER 1: Client Layer ==================== -->
+  <rect x="30" y="62" width="620" height="58" rx="8" fill="#e8f4fd" stroke="#3498db" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="40" y="79" fill="#2980b9" font-size="11" font-weight="bold">CLIENT LAYER</text>
+  <rect x="45" y="86" width="170" height="26" rx="5" fill="#ffffff" stroke="#3498db" stroke-width="1" />
+  <text x="130" y="103" text-anchor="middle" fill="#2c3e50" font-size="11">Browser (Dashboard HTML)</text>
+  <rect x="230" y="86" width="180" height="26" rx="5" fill="#ffffff" stroke="#3498db" stroke-width="1" />
+  <text x="320" y="103" text-anchor="middle" fill="#2c3e50" font-size="11">REST Client (curl / Postman)</text>
+
+  <!-- Arrow: Client -> Controller -->
+  <line x1="200" y1="120" x2="200" y2="136" stroke="#555" stroke-width="1.5" marker-end="url(#arrowDown)" />
+  <line x1="380" y1="120" x2="380" y2="136" stroke="#555" stroke-width="1.5" marker-end="url(#arrowDown)" />
+
+  <!-- ==================== LAYER 2: Controller Layer [C] ==================== -->
+  <rect x="30" y="136" width="620" height="72" rx="8" fill="#e8f8e8" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="40" y="153" fill="#27ae60" font-size="11" font-weight="bold">CONTROLLER LAYER [C]</text>
+  <!-- DashboardController -->
+  <rect x="45" y="160" width="165" height="38" rx="5" fill="#ffffff" stroke="#27ae60" stroke-width="1" />
+  <text x="127" y="175" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">DashboardController</text>
+  <text x="127" y="190" text-anchor="middle" fill="#7f8c8d" font-size="9">GET /  ,  /dashboard</text>
+  <!-- IndexQuoteController -->
+  <rect x="222" y="160" width="195" height="38" rx="5" fill="#ffffff" stroke="#27ae60" stroke-width="1" />
+  <text x="319" y="175" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">IndexQuoteController</text>
+  <text x="319" y="190" text-anchor="middle" fill="#7f8c8d" font-size="9">GET /api/quotes, /api/quotes/{id}</text>
+  <!-- ScraperController -->
+  <rect x="429" y="160" width="210" height="38" rx="5" fill="#ffffff" stroke="#27ae60" stroke-width="1" />
+  <text x="534" y="175" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">ScraperController</text>
+  <text x="534" y="190" text-anchor="middle" fill="#7f8c8d" font-size="8">POST /api/scraper/index/run, GET .../trading-status</text>
+
+  <!-- Arrow: Controller -> Service -->
+  <line x1="340" y1="208" x2="340" y2="226" stroke="#555" stroke-width="1.5" marker-end="url(#arrowDown)" />
+
+  <!-- ==================== LAYER 3: Service Layer ==================== -->
+  <rect x="30" y="226" width="620" height="62" rx="8" fill="#fff3e0" stroke="#f39c12" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="40" y="243" fill="#e67e22" font-size="11" font-weight="bold">SERVICE LAYER</text>
+  <rect x="45" y="250" width="130" height="28" rx="5" fill="#ffffff" stroke="#f39c12" stroke-width="1" />
+  <text x="110" y="268" text-anchor="middle" fill="#2c3e50" font-size="10">IndexQuoteService</text>
+  <rect x="185" y="250" width="145" height="28" rx="5" fill="#ffffff" stroke="#f39c12" stroke-width="1" />
+  <text x="257" y="268" text-anchor="middle" fill="#2c3e50" font-size="10">AnnouncementService</text>
+  <rect x="340" y="250" width="170" height="28" rx="5" fill="#ffffff" stroke="#f39c12" stroke-width="1" />
+  <text x="425" y="268" text-anchor="middle" fill="#2c3e50" font-size="10">AnnouncementQueueService</text>
+  <rect x="520" y="250" width="120" height="28" rx="5" fill="#ffffff" stroke="#f39c12" stroke-width="1" />
+  <text x="580" y="268" text-anchor="middle" fill="#2c3e50" font-size="9">TradingCalendarService</text>
+
+  <!-- Arrow: Service -> Scraper -->
+  <line x1="340" y1="288" x2="340" y2="308" stroke="#555" stroke-width="1.5" marker-end="url(#arrowDown)" />
+
+  <!-- ==================== LAYER 4: Scraper Module ==================== -->
+  <rect x="30" y="308" width="620" height="82" rx="8" fill="#f3e5f5" stroke="#9b59b6" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="40" y="325" fill="#8e44ad" font-size="11" font-weight="bold">SCRAPER MODULE</text>
+  <!-- PageFetcher -->
+  <rect x="45" y="334" width="145" height="46" rx="5" fill="#ffffff" stroke="#9b59b6" stroke-width="1" />
+  <text x="117" y="353" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">PageFetcher</text>
+  <text x="117" y="370" text-anchor="middle" fill="#7f8c8d" font-size="9">(Playwright)</text>
+  <!-- Arrow: PageFetcher -> parser -->
+  <line x1="190" y1="357" x2="215" y2="357" stroke="#555" stroke-width="1.5" marker-end="url(#arrowRight)" />
+  <!-- parser/ group -->
+  <rect x="218" y="330" width="420" height="54" rx="5" fill="#ede7f6" stroke="#9b59b6" stroke-width="1" stroke-dasharray="4,2" />
+  <text x="228" y="344" fill="#8e44ad" font-size="9" font-weight="bold">parser/</text>
+  <rect x="228" y="350" width="90" height="26" rx="4" fill="#ffffff" stroke="#9b59b6" stroke-width="0.8" />
+  <text x="273" y="367" text-anchor="middle" fill="#2c3e50" font-size="9">IndexParser</text>
+  <rect x="326" y="350" width="105" height="26" rx="4" fill="#ffffff" stroke="#9b59b6" stroke-width="0.8" />
+  <text x="378" y="367" text-anchor="middle" fill="#2c3e50" font-size="9">AnnualReportParser</text>
+  <rect x="439" y="350" width="105" height="26" rx="4" fill="#ffffff" stroke="#9b59b6" stroke-width="0.8" />
+  <text x="491" y="367" text-anchor="middle" fill="#2c3e50" font-size="9">FinancialResultParser</text>
+  <rect x="552" y="350" width="80" height="26" rx="4" fill="#ffffff" stroke="#9b59b6" stroke-width="0.8" />
+  <text x="592" y="367" text-anchor="middle" fill="#2c3e50" font-size="8">ListingProfileParser</text>
+
+  <!-- Arrow: Scraper -> Repository -->
+  <line x1="340" y1="390" x2="340" y2="410" stroke="#555" stroke-width="1.5" marker-end="url(#arrowDown)" />
+
+  <!-- ==================== LAYER 5: Repository Layer [M] ==================== -->
+  <rect x="30" y="410" width="620" height="80" rx="8" fill="#e0f7fa" stroke="#00bcd4" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="40" y="427" fill="#00838f" font-size="11" font-weight="bold">REPOSITORY LAYER [M] -- Spring Data JPA</text>
+  <!-- Row 1 -->
+  <rect x="45" y="434" width="130" height="22" rx="4" fill="#ffffff" stroke="#00bcd4" stroke-width="0.8" />
+  <text x="110" y="449" text-anchor="middle" fill="#2c3e50" font-size="9">IndexQuoteRepository</text>
+  <rect x="183" y="434" width="130" height="22" rx="4" fill="#ffffff" stroke="#00bcd4" stroke-width="0.8" />
+  <text x="248" y="449" text-anchor="middle" fill="#2c3e50" font-size="9">AnnualReportRepository</text>
+  <rect x="321" y="434" width="145" height="22" rx="4" fill="#ffffff" stroke="#00bcd4" stroke-width="0.8" />
+  <text x="393" y="449" text-anchor="middle" fill="#2c3e50" font-size="9">QuarterlyResultRepository</text>
+  <rect x="474" y="434" width="165" height="22" rx="4" fill="#ffffff" stroke="#00bcd4" stroke-width="0.8" />
+  <text x="556" y="449" text-anchor="middle" fill="#2c3e50" font-size="9">AnnouncementQueueRepository</text>
+  <!-- Row 2 -->
+  <rect x="45" y="462" width="130" height="22" rx="4" fill="#ffffff" stroke="#00bcd4" stroke-width="0.8" />
+  <text x="110" y="477" text-anchor="middle" fill="#2c3e50" font-size="9">ListingProfileRepository</text>
+  <rect x="183" y="462" width="140" height="22" rx="4" fill="#ffffff" stroke="#00bcd4" stroke-width="0.8" />
+  <text x="253" y="477" text-anchor="middle" fill="#2c3e50" font-size="9">TradingHolidayRepository</text>
+  <rect x="331" y="462" width="135" height="22" rx="4" fill="#ffffff" stroke="#00bcd4" stroke-width="0.8" />
+  <text x="398" y="477" text-anchor="middle" fill="#2c3e50" font-size="9">LastEodMarkerRepository</text>
+
+  <!-- Arrow: Repository -> Database -->
+  <line x1="340" y1="490" x2="340" y2="514" stroke="#555" stroke-width="1.5" marker-end="url(#arrowDown)" />
+
+  <!-- ==================== LAYER 6: Database ==================== -->
+  <rect x="30" y="514" width="620" height="72" rx="8" fill="#fce4ec" stroke="#e74c3c" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="40" y="531" fill="#c0392b" font-size="11" font-weight="bold">DATABASE -- MySQL 8.0 (bursa_data)</text>
+  <!-- Tables -->
+  <rect x="45" y="538" width="80" height="22" rx="4" fill="#ffffff" stroke="#e74c3c" stroke-width="0.8" />
+  <text x="85" y="553" text-anchor="middle" fill="#2c3e50" font-size="9">index_quote</text>
+  <rect x="133" y="538" width="85" height="22" rx="4" fill="#ffffff" stroke="#e74c3c" stroke-width="0.8" />
+  <text x="175" y="553" text-anchor="middle" fill="#2c3e50" font-size="9">annual_report</text>
+  <rect x="226" y="538" width="95" height="22" rx="4" fill="#ffffff" stroke="#e74c3c" stroke-width="0.8" />
+  <text x="273" y="553" text-anchor="middle" fill="#2c3e50" font-size="9">quarterly_result</text>
+  <rect x="329" y="538" width="115" height="22" rx="4" fill="#ffffff" stroke="#e74c3c" stroke-width="0.8" />
+  <text x="386" y="553" text-anchor="middle" fill="#2c3e50" font-size="9">announcement_queue</text>
+  <rect x="452" y="538" width="90" height="22" rx="4" fill="#ffffff" stroke="#e74c3c" stroke-width="0.8" />
+  <text x="497" y="553" text-anchor="middle" fill="#2c3e50" font-size="9">listing_profile</text>
+  <rect x="45" y="564" width="100" height="22" rx="4" fill="#ffffff" stroke="#e74c3c" stroke-width="0.8" />
+  <text x="95" y="579" text-anchor="middle" fill="#2c3e50" font-size="9">trading_holiday</text>
+  <rect x="153" y="564" width="100" height="22" rx="4" fill="#ffffff" stroke="#e74c3c" stroke-width="0.8" />
+  <text x="203" y="579" text-anchor="middle" fill="#2c3e50" font-size="9">last_eod_marker</text>
+
+  <!-- ==================== SIDE: Scheduler ==================== -->
+  <rect x="680" y="200" width="190" height="88" rx="8" fill="#fffde7" stroke="#ffc107" stroke-width="1.5" filter="url(#shadow)" />
+  <text x="775" y="222" text-anchor="middle" fill="#f57f17" font-size="11" font-weight="bold">SCHEDULER</text>
+  <rect x="695" y="232" width="160" height="46" rx="5" fill="#ffffff" stroke="#ffc107" stroke-width="1" />
+  <text x="775" y="251" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold">IndexScrapeScheduler</text>
+  <text x="775" y="268" text-anchor="middle" fill="#7f8c8d" font-size="9">@Scheduled (every 5 min)</text>
+
+  <!-- Arrow: Scheduler -> Service Layer -->
+  <line x1="680" y1="257" x2="652" y2="257" stroke="#555" stroke-width="1.5" marker-end="url(#arrowLeft)" />
+
+  <!-- ==================== LEGEND ==================== -->
+  <rect x="680" y="520" width="190" height="166" rx="8" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)" />
+  <text x="775" y="540" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold">Legend</text>
+  <!-- Client -->
+  <rect x="695" y="550" width="14" height="14" rx="3" fill="#e8f4fd" stroke="#3498db" stroke-width="1" />
+  <text x="716" y="562" fill="#2c3e50" font-size="9">Client Layer</text>
+  <!-- Controller -->
+  <rect x="695" y="570" width="14" height="14" rx="3" fill="#e8f8e8" stroke="#27ae60" stroke-width="1" />
+  <text x="716" y="582" fill="#2c3e50" font-size="9">Controller [C]</text>
+  <!-- Service -->
+  <rect x="695" y="590" width="14" height="14" rx="3" fill="#fff3e0" stroke="#f39c12" stroke-width="1" />
+  <text x="716" y="602" fill="#2c3e50" font-size="9">Service Layer</text>
+  <!-- Scraper -->
+  <rect x="695" y="610" width="14" height="14" rx="3" fill="#f3e5f5" stroke="#9b59b6" stroke-width="1" />
+  <text x="716" y="622" fill="#2c3e50" font-size="9">Scraper Module</text>
+  <!-- Repository -->
+  <rect x="695" y="630" width="14" height="14" rx="3" fill="#e0f7fa" stroke="#00bcd4" stroke-width="1" />
+  <text x="716" y="642" fill="#2c3e50" font-size="9">Repository [M]</text>
+  <!-- Database -->
+  <rect x="695" y="650" width="14" height="14" rx="3" fill="#fce4ec" stroke="#e74c3c" stroke-width="1" />
+  <text x="716" y="662" fill="#2c3e50" font-size="9">Database</text>
+  <!-- Scheduler -->
+  <rect x="695" y="670" width="14" height="14" rx="3" fill="#fffde7" stroke="#ffc107" stroke-width="1" />
+  <text x="716" y="682" fill="#2c3e50" font-size="9">Scheduler</text>
+
+  <!-- Data flow label -->
+  <line x1="700" y1="695" x2="730" y2="695" stroke="#555" stroke-width="1.5" marker-end="url(#arrowDown)" />
+
+  <!-- Flow direction labels on arrows -->
+  <text x="355" y="132" fill="#7f8c8d" font-size="8">HTTP</text>
+  <text x="355" y="222" fill="#7f8c8d" font-size="8">call</text>
+  <text x="355" y="304" fill="#7f8c8d" font-size="8">call</text>
+  <text x="355" y="406" fill="#7f8c8d" font-size="8">persist</text>
+  <text x="355" y="510" fill="#7f8c8d" font-size="8">JDBC</text>
+  <text x="656" y="250" fill="#7f8c8d" font-size="8">trigger</text>
+</svg>
