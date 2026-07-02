@@ -60,7 +60,7 @@ MaGuTong/
 │   └── MIGRATION.md            #   Python → Java 迁移对照
 └── src/
     ├── main/
-    │   ├── java/com/zhongzhiqiang/magutong/
+    │   ├── java/xin/ctkqiang/mybursa/
     │   │   ├── MaGuTongApplication.java        # 启动类
     │   │   ├── config/         # 配置：Playwright、抓取参数
     │   │   ├── controller/     # 【C】REST 接口 + 仪表盘页面控制器
