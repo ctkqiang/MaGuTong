@@ -1,0 +1,80 @@
+/* ============================================================
+   马股通 仪表盘样式 (Dashboard styles)
+   作者 (Author): 钟智强
+   ============================================================ */
+
+:root {
+    --bg: #0f1720;
+    --panel: #17212b;
+    --text: #e6edf3;
+    --muted: #8b98a5;
+    --accent: #2f81f7;
+    --green: #2ea043;
+    --red: #da3633;
+    --border: #21313f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar h1 { font-size: 20px; margin: 0; }
+.subtitle { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: normal; }
+
+.status {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+.status.open { background: rgba(46, 160, 67, 0.18); color: var(--green); }
+.status.closed { background: rgba(218, 54, 51, 0.18); color: var(--red); }
+
+main { padding: 24px; max-width: 1100px; margin: 0 auto; }
+
+.toolbar { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+
+button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.msg { color: var(--muted); font-size: 13px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: #1c2731; color: var(--muted); font-weight: 600; }
+tr:hover td { background: #1b2732; }
+
+.empty { text-align: center; color: var(--muted); padding: 32px; }
+
+footer { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
+footer a { color: var(--accent); text-decoration: none; }

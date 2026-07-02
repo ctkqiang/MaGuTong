@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+    仪表盘视图 (Dashboard View) - MVC 中的 "V"
+    作者 (Author): 钟智强
+-->
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马股通 · 行情仪表盘</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+<header class="topbar">
+    <h1>马股通 <span class="subtitle">马来西亚股票行情仪表盘</span></h1>
+    <!-- 交易状态徽章 (Trading status badge) -->
+    <span class="status" th:classappend="${tradingOpen} ? 'open' : 'closed'"
+          th:text="${tradingOpen} ? '交易中 · Trading Open' : '休市 · Market Closed'">状态</span>
+</header>
+
+<main>
+    <div class="toolbar">
+        <button id="refreshBtn" onclick="triggerScrape()">立即抓取 · Scrape Now</button>
+        <span id="msg" class="msg"></span>
+    </div>
+
+    <!-- 行情表格 (Quote table) -->
+    <table>
+        <thead>
+        <tr>
+            <th>代码 Ticker</th>
+            <th>名称 Name</th>
+            <th>开盘 Open</th>
+            <th>最高 High</th>
+            <th>最低 Low</th>
+            <th>最新 Last</th>
+            <th>前收 Prev</th>
+            <th>更新时间 Updated</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 无数据占位 (Empty placeholder) -->
+        <tr th:if="${quotes.isEmpty()}">
+            <td colspan="8" class="empty">暂无数据，请点击 "立即抓取" · No data yet</td>
+        </tr>
+        <!-- 数据行 (Data rows) -->
+        <tr th:each="q : ${quotes}">
+            <td th:text="${q.tickerId}">-</td>
+            <td th:text="${q.symbol}">-</td>
+            <td th:text="${q.openPrice}">-</td>
+            <td th:text="${q.highPrice}">-</td>
+            <td th:text="${q.lowPrice}">-</td>
+            <td th:text="${q.lastPrice}">-</td>
+            <td th:text="${q.prevPrice}">-</td>
+            <td th:text="${q.lastUpdate}">-</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer>
+    <p>© 钟智强 · Released under WTFPL · <a href="/api/quotes">REST API</a></p>
+</footer>
+
+<script>
+    // 调用后端 REST 接口手动触发抓取 (Call the REST endpoint to trigger a scrape)
+    async function triggerScrape() {
+        const btn = document.getElementById('refreshBtn');
+        const msg = document.getElementById('msg');
+        btn.disabled = true;
+        msg.textContent = '抓取中… Scraping…';
+        try {
+            const res = await fetch('/api/scraper/index/run', { method: 'POST' });
+            const data = await res.json();
+            msg.textContent = data.success
+                ? `完成，保存 ${data.savedCount} 条 · Saved ${data.savedCount}`
+                : '抓取失败 · Scrape failed';
+            if (data.success) {
+                setTimeout(() => window.location.reload(), 800);
+            }
+        } catch (e) {
+            msg.textContent = '请求出错 · Request error';
+        } finally {
+            btn.disabled = false;
+        }
+    }
+</script>
+</body>
+</html>
