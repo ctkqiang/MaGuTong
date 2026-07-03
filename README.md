@@ -9,7 +9,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.47.0-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)](https://playwright.dev/java/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](./LICENSE)
+[![License](https://img.shields.io/badge/License-GPL_v3-blue?style=for-the-badge&logo=gnu)](./LICENSE)
 
 <br/>
 
@@ -18,7 +18,7 @@
 &nbsp;&middot;&nbsp;
 <b>包名：</b> <code>xin.ctkqiang.mybursa</code>
 &nbsp;&middot;&nbsp;
-<b>许可证：</b> <a href="./LICENSE">MIT</a>
+<b>许可证 (License)：</b> <a href="./LICENSE">GPL v3</a>
 </sub>
 
 </div>
@@ -133,7 +133,7 @@ MaGuTong/
 ├── .dockerignore                   # Docker 构建排除规则
 ├── .githooks/                      # Git 钩子
 │   └── pre-commit                  #   提交前语言规范检查
-├── LICENSE                         # MIT 许可证
+├── LICENSE                         # GPL v3 许可证
 ├── README.md                       # 本文件
 ├── docs/                           # 文档与图表
 │   ├── ARCHITECTURE.md             #   架构设计说明
@@ -564,7 +564,8 @@ docker compose build && docker compose up -d
 
 ## 十二、许可证
 
-本项目基于 **MIT** 许可证发布。详见 [LICENSE](./LICENSE)。
+本项目基于 **GNU General Public License v3 (GPL v3)** 发布，附加商业使用通知要求
+及 Bursa Malaysia 合规条款。详见 [LICENSE](./LICENSE) 及上方[免责声明与使用条款](#免责声明与使用条款-disclaimer--terms-of-use)。
 
 <div align="center">
 <br/>
@@ -575,39 +576,57 @@ docker compose build && docker compose up -d
 
 ## 免责声明与使用条款 (Disclaimer & Terms of Use)
 
-本项目仅供**学习、研究与个人非商业用途**。使用者在运行本软件前，
-须自行阅读并遵守以下条款。
+本项目采用 **GNU General Public License v3 (GPL v3)** 许可证发布，
+并附加以下使用条款。使用者在运行本软件前，须自行阅读并遵守全部条款。
 
-### 1. 数据来源与合规责任
+### 1. 许可证与商业使用限制
+
+- 本项目以 **GPL v3** 开源，你可以自由使用、修改和分发本软件，
+  但**必须以相同许可证**发布衍生作品，并保留原始版权声明。
+- **商业使用须事先通知：** 任何个人或实体在将本软件（全部或部分）用于
+  商业或盈利目的之前，**必须提前 30 天书面通知**以下双方：
+  - **原作者：** 钟智强 (johnmelodymel@qq.com)
+  - **Bursa Malaysia：** 通过其官方渠道 (https://www.bursamalaysia.com/)
+- 通知须包含：预期用途的清晰描述、使用范围及持续时间。
+- 未经事先通知的商业使用视为违反本许可条款。
+
+### 2. Bursa Malaysia 合规与下架条款
 
 - 本项目抓取的所有数据均来自 **Bursa Malaysia（马来西亚证券交易所）**
   官网公开页面，本项目**不拥有**这些数据的任何权利。
 - 使用者须自行阅读并遵守 [Bursa Malaysia 网站使用条款](https://www.bursamalaysia.com/)
-  及其数据使用政策。若目标网站的服务条款禁止自动化抓取，使用者应停止使用本工具抓取该站点。
-- 因使用本项目而违反任何网站服务条款、数据许可协议或适用法律所产生的一切后果，
-  **由使用者自行承担**，与本项目作者无关。
+  及其数据使用政策。
+- **下架合规 (Take-Down Compliance)：** 若 Bursa Malaysia 发出下架请求、
+  停止函或任何正式异议，作者及所有使用者**必须**：
+  - 收到通知后**立即停止**所有针对 Bursa Malaysia 系统的抓取活动；
+  - 在合理时间内（不超过 **7 个日历日**）移除或禁用相关功能；
+  - 善意配合 Bursa Malaysia 解决相关事宜。
+- 重新分发或部署本软件的使用者须**独立承担**自身的合规责任，
+  原作者不对第三方的违规行为承担责任。
 
-### 2. 抓取行为规范
+### 3. 抓取行为规范
 
 - **请勿高频抓取**：本项目默认每 5 分钟抓取一次且仅限交易时段，
   使用者不应擅自调低抓取间隔或在非必要情况下大量并发请求，以免对目标服务器造成负担。
 - 抓取行为应尊重目标站点的 `robots.txt` 及服务器负载。
 - 禁止利用本项目进行任何形式的拒绝服务（DoS）或规避访问限制的行为。
 
-### 3. 数据使用限制
+### 4. 数据使用限制
 
 - 抓取所得数据**不得**用于商业分发、转售，或作为付费产品/服务的数据源，
   除非已从 Bursa Malaysia 获得相应授权或许可。
 - 本项目数据**不构成**任何投资建议，作者不对数据的准确性、完整性或时效性作任何保证。
   任何依据本数据做出的投资决策，风险自负。
 
-### 4. 免责
+### 5. 免责
 
-- 本软件按“**现状**”提供，不附带任何明示或默示的担保（详见 MIT 许可证）。
+- 本软件按"**现状**"提供，不附带任何明示或默示的担保（详见 GPL v3 许可证）。
 - 作者不对因使用或无法使用本软件而导致的任何直接、间接、附带或后果性损失负责。
 
 > **合规建议：** 若需将数据用于商业或对外服务，请优先联系 Bursa Malaysia
 > 获取官方数据接口（Market Data Feed）或数据许可。
+
+完整许可证条款见 [LICENSE](./LICENSE)。
 
 ---
 
