@@ -93,6 +93,32 @@ pursuant to Section 7 of the GNU General Public License v3:
        attacks or to circumvent access restrictions is STRICTLY
        PROHIBITED.
 
+5. RESEARCH-ONLY DISCLAIMER (仅限研究用途声明)
+
+   THIS SOFTWARE IS PROVIDED STRICTLY FOR RESEARCH, EDUCATIONAL,
+   AND PERSONAL NON-COMMERCIAL PURPOSES ONLY.
+
+   DO NOT USE THIS SOFTWARE FOR BUSINESS OR MONETARY GAIN.
+
+   If you require market data for commercial or business purposes,
+   you MUST obtain it directly from Bursa Malaysia through their
+   official data licensing channels:
+   https://www.bursamalaysia.com/
+
+   You are welcome to study, reference, and learn from the source
+   code and architecture of this project. However, deploying this
+   repository — or any derivative of it — as part of a revenue-
+   generating product, service, or operation is STRICTLY PROHIBITED
+   without prior authorization as described in Section 1 above.
+
+   In summary:
+   - Study the code: YES
+   - Learn from the architecture: YES
+   - Use for academic research: YES
+   - Use for personal, non-commercial projects: YES
+   - Use for business or monetary gain: NO
+   - Resell or redistribute scraped data: NO
+
 ============================================================
 
 For the full text of the GNU General Public License v3, see:
