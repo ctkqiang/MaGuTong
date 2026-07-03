@@ -1,21 +1,99 @@
-MIT License
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
 
-Copyright (c) 2026 钟智强
+Copyright (C) 2026 钟智强
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+============================================================
+ADDITIONAL TERMS AND CONDITIONS (附加条款)
+============================================================
+
+The following additional terms apply to the use of this software,
+pursuant to Section 7 of the GNU General Public License v3:
+
+1. COMMERCIAL USE RESTRICTION (商业使用限制)
+
+   No individual, organization, or entity may use this software,
+   in whole or in part, for any commercial or profit-generating
+   purpose — including but not limited to selling, licensing,
+   sublicensing, or incorporating into a paid product or service —
+   without providing PRIOR WRITTEN NOTIFICATION to BOTH:
+
+   (a) The original author:
+       钟智强 (Zhong Zhiqiang)
+       Email: johnmelodymel@qq.com
+
+   (b) Bursa Malaysia Berhad:
+       https://www.bursamalaysia.com/
+       Contact: Bursa Malaysia's official communication channels
+
+   Such notification must be sent at least thirty (30) calendar days
+   before the intended commercial use commences, and must include a
+   clear description of the intended use, scope, and duration.
+
+2. BURSA MALAYSIA COMPLIANCE (Bursa Malaysia 合规条款)
+
+   (a) All data scraped by this software originates from publicly
+       accessible pages of Bursa Malaysia (https://www.bursamalaysia.com/).
+       This project does NOT claim ownership of any such data.
+
+   (b) Users must comply with Bursa Malaysia's Terms of Use, data
+       policies, and any applicable regulations at all times.
+
+   (c) TAKE-DOWN COMPLIANCE: If Bursa Malaysia issues a take-down
+       request, cease-and-desist notice, or any formal objection
+       regarding the use of this software or the data it collects,
+       the author and all users SHALL:
+       - Immediately cease all scraping activities directed at
+         Bursa Malaysia's systems upon receipt of such notice;
+       - Remove or disable the offending functionality within a
+         reasonable timeframe (not exceeding 7 calendar days);
+       - Cooperate in good faith with Bursa Malaysia to resolve
+         the matter.
+
+   (d) Users who redistribute or deploy this software are
+       independently responsible for ensuring their own compliance
+       with Bursa Malaysia's policies. The original author shall
+       not be held liable for third-party non-compliance.
+
+3. DATA USE RESTRICTIONS (数据使用限制)
+
+   (a) Data obtained through this software SHALL NOT be commercially
+       redistributed, resold, or used as a data source for any paid
+       product or service, unless the user has obtained explicit
+       authorization from Bursa Malaysia.
+
+   (b) Data provided by this software does NOT constitute investment
+       advice. The author makes no warranty regarding the accuracy,
+       completeness, or timeliness of the data. Any investment
+       decisions made based on this data are at the user's own risk.
+
+4. RESPONSIBLE SCRAPING (负责任的抓取行为)
+
+   (a) Users SHALL NOT reduce the default scraping interval below
+       the configured 5-minute minimum or initiate excessive
+       concurrent requests that may burden the target servers.
+
+   (b) Users SHALL respect the target site's robots.txt directives
+       and server capacity limitations.
+
+   (c) Using this software to conduct denial-of-service (DoS)
+       attacks or to circumvent access restrictions is STRICTLY
+       PROHIBITED.
+
+============================================================
+
+For the full text of the GNU General Public License v3, see:
+https://www.gnu.org/licenses/gpl-3.0.html
